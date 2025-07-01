@@ -103,8 +103,8 @@
                         <p class="text-sm text-slate-500">{{ $buyer->created_at }}</p>
                     </td>
                     <td class="p-4 py-5">
-                        <flux:button wire:click="edit({{ $buyer->id }})">Edit</flux:button>
-                        <flux:button variant="danger" wire:click="delete({{ $buyer->id }})">Delete</flux:button>
+                        <flux:button wire:click="edit({{ $buyer->id }})" size="sm">Edit</flux:button>
+                        <flux:button variant="danger" wire:click="delete({{ $buyer->id }})" size="sm">Delete</flux:button>
                     </td>
                 </tr>
             @empty

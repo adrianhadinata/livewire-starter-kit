@@ -149,9 +149,6 @@
                     <td class="p-4 py-5">
                         <p class="text-sm text-slate-500">{{ $bom->buyer ?? '-'}}</p>
                     </td>
-                    {{-- <td class="p-4 py-5">
-                        <p class="text-sm text-slate-500">{{ $bom->buyer ?? '-'}}</p>
-                    </td> --}}
                     <td class="p-4 py-5">
                         <p class="text-sm text-slate-500">{{ $bom->MD ?? '-' }}</p>
                     </td>
@@ -165,8 +162,8 @@
                         <p class="text-sm text-slate-500">{{ $bom->Seq_code }}</p>
                     </td>
                     <td class="p-4 py-5">
-                        <flux:button wire:click="edit({{ $bom->id }})">Edit</flux:button>
-                        <flux:button variant="danger" wire:click="delete({{ $bom->id }})">Delete</flux:button>
+                        <flux:button wire:click="edit({{ $bom->id }})" size="sm">Edit</flux:button>
+                        <flux:button variant="danger" wire:click="delete({{ $bom->id }})" size="sm">Delete</flux:button>
                     </td>
                 </tr>
             @empty

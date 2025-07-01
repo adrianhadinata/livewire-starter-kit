@@ -14,38 +14,6 @@ class Boms extends Component
     use WithPagination;
     public $id, $term;
 
-    // public function render()
-    // {
-    //     if($this->term) {
-    //         $data = BuyerModel::where('name', 'like', '%' . $this->term . '%')->orderByDesc('created_at')->paginate(5);
-    //         return view('livewire.buyers', [
-    //             'data' => $data
-    //         ]);
-    //     } else {
-    //         $data = BuyerModel::orderByDesc('created_at')->paginate(5);
-    //         return view('livewire.buyers', [
-    //             'data' => $data
-    //         ]);
-    //     }
-    // }
-
-    // public function render()
-    // {
-    //     if($this->term) {
-    //         $data = BomModel::select(DB::raw('count(*) as user_count, status'))->where('name', 'like', '%' . $this->term . '%')->orderByDesc('created_at')->paginate(5);
-    //         return view('livewire.buyers', [
-    //             'data' => $data
-    //         ]);
-    //     } else {
-    //         $data = BomModel::orderByDesc('created_at')->paginate(5);
-    //         return view('livewire.buyers', [
-    //             'data' => $data
-    //         ]);
-    //     }
-
-    //     return view('livewire.boms');
-    // }
-
     public function render()
     {
         $data = BomModel::select(DB::raw("PWN_Main.statuspo,

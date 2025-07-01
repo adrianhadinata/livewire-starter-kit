@@ -17,8 +17,8 @@ Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
     // Buyer
-    Route::get('buyers', Buyers::class)->name('buyers');
-    Route::get('boms', Boms::class)->name('boms');
+    Route::get('buyers', Buyers::class)->name('dbo_Customer_Master');
+    Route::get('boms', Boms::class)->name('dbo_PWN_Main');
 
     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
     Volt::route('settings/password', 'settings.password')->name('settings.password');

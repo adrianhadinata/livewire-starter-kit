@@ -4,7 +4,8 @@
         @include('partials.head')
     </head>
     <body class="min-h-screen bg-white dark:bg-zinc-800">
-        <flux:sidebar sticky stashable class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
+        {{-- <flux:sidebar sticky stashable class="border-e border-zinc-200 text-white bg-indigo-400 dark:border-zinc-700 dark:bg-zinc-900 w-64"> --}}
+        <flux:sidebar sticky stashable class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 w-64">
             <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
 
             <a href="{{ route('dashboard') }}" class="me-5 flex items-center space-x-2 rtl:space-x-reverse" wire:navigate>
@@ -12,24 +13,82 @@
             </a>
 
             <flux:navlist variant="outline">
-                <flux:navlist.group :heading="__('Platform')" class="grid">
-                    <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+                {{-- <flux:navlist.group :heading="__('Platform')" class="grid"> --}}
+                    {{-- <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item> --}}
                     {{-- <flux:navlist.item icon="home" :href="route('buyers')" :current="request()->routeIs('buyers')" wire:navigate>{{ __('Buyers') }}</flux:navlist.item> --}}
-                </flux:navlist.group>
+                {{-- </flux:navlist.group> --}}
 
-                <flux:navlist.group heading="Master" expandable>
+                <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+
+                {{-- <flux:navlist.group heading="Master" expandable>
                     <flux:navlist.item :href="route('buyers')" :current="request()->routeIs('buyers')" wire:navigate>{{ __('Buyers') }}</flux:navlist.item>
                 </flux:navlist.group>
 
                 <flux:navlist.group heading="Marketing / Merchandiser" expandable>
-                    {{-- <flux:navlist.item :href="route('buyers')" :current="request()->routeIs('buyers')" wire:navigate>{{ __('Buyers') }}</flux:navlist.item> --}}
                     <flux:navlist.item href="#" :href="route('boms')" :current="request()->routeIs('boms')" wire:navigate>{{ __('Boms') }}</flux:navlist.item>
-                </flux:navlist.group>
+                </flux:navlist.group> --}}
+
+                @foreach ($menus as $menu)
+                    @php
+                        $groupmenu;
+                    @endphp
+
+                    @if ($menu['level'] == 1)
+                        <flux:navlist.group heading="{!! $menu['CaptionFOrm'] !!}" expandable :expanded="false" class="mt-2" style="text-align: left">
+                        @php
+                            $groupmenu = $menu['GroupMenuSUb'];
+                        @endphp
+
+                            @foreach ($menus as $index => $sub)
+                                {{-- @if ($sub['level'] == 2 && $sub['GroupMenuSUb'] == $groupmenu && $menus[($index + 1) >= count($menus) ? count($menus) - 1 : $index + 1]['level'] != 3) --}}
+                                @if ($sub['level'] == 2 && $sub['GroupMenuSUb'] == $groupmenu)
+                                    @php
+                                        $routeName = $sub['tabelName'];
+                                    @endphp
+
+                                    @if($menus[($index + 1) >= count($menus) ? count($menus) - 1 : $index + 1]['level'] != 3)
+                                        @if (Route::has($routeName))
+                                            <flux:navlist.item :href="route($routeName)" :current="request()->routeIs($routeName)" wire:navigate class="navlistitem">{{ $sub['CaptionFOrm'] }}</flux:navlist.item>
+                                        @else
+                                            <flux:navlist.item class="navlistitem">{{ $sub['CaptionFOrm'] }}</flux:navlist.item>
+                                        @endif
+
+                                    @else
+                                        <flux:navlist.group heading="{!! $sub['CaptionFOrm'] !!}" expandable :expanded="false" class="mt-2" style="text-align: left">
+
+                                            @php
+                                                $subgroupmenu = $sub['GroupMenuSUb'];
+                                            @endphp
+
+                                            {{-- @foreach ($menus as $index => $subsub)
+
+                                                @if ($subsub['level'] == 3 && $subsub['GroupMenuSUb'] == $subgroupmenu)
+                                                    @php
+                                                        $routeName = $subsub['tabelName'];
+                                                    @endphp
+
+                                                    @if (Route::has($routeName))
+                                                        <flux:navlist.item :href="route($routeName)" :current="request()->routeIs($routeName)" wire:navigate class="navlistitem">{{ $sub['CaptionFOrm'] }}</flux:navlist.item>
+                                                    @else
+                                                        <flux:navlist.item class="navlistitem">{{ $sub['CaptionFOrm'] }}</flux:navlist.item>
+                                                    @endif
+                                                @endif
+                                            @endforeach --}}
+
+                                        </flux:navlist.group>
+                                    @endif
+                            
+                                @endif
+                            @endforeach
+                
+                        </flux:navlist.group>
+                    @endif
+                @endforeach
             </flux:navlist>
 
             <flux:spacer />
 
-            <flux:navlist variant="outline">
+            {{-- <flux:navlist variant="outline"> --}}
                 {{-- <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
                 {{ __('Repository') }}
                 </flux:navlist.item>
@@ -37,7 +96,7 @@
                 <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
                 {{ __('Documentation') }}
                 </flux:navlist.item> --}}
-            </flux:navlist>
+            {{-- </flux:navlist> --}}
 
             <!-- Desktop User Menu -->
             <flux:dropdown class="hidden lg:block" position="bottom" align="start">

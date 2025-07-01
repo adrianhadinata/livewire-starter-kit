@@ -3,13 +3,13 @@
 namespace App\Livewire\Bom;
 
 use Livewire\Component;
-use App\Models\BuyerModel;
+use App\Models\Customer_Master;
 
 class CreateBom extends Component
 {
     public function render()
     {
-        $buyers = BuyerModel::all();
+        $buyers = Customer_Master::all();
         return view('livewire.bom.create-bom', ['customers' => $buyers]);
     }
 }

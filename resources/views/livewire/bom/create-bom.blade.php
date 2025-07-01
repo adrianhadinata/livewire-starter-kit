@@ -37,7 +37,7 @@
                         class="mb-2"
                     />
 
-                    <flux:select size="sm" label="Status" wire:model="status" class="mb-2">
+                    <flux:select size="sm" label="Status" wire:model="status" class="mb-2" placeholder="Choose a status...">
                         <flux:select.option>Not Complete</flux:select.option>
                         <flux:select.option>Complete</flux:select.option>
                     </flux:select>
@@ -58,28 +58,28 @@
                 </div>
 
                 <div>
-                    <flux:select label="* Customer Name" wire:model="customername" class="mb-2">
+                    <flux:select label="* Customer Name" wire:model="customername" class="mb-2" placeholder="Choose a customer...">
                         @foreach ($customers as $customer)
-                            <flux:select.option>{{ $customer->name }}</flux:select.option>
+                            <flux:select.option>{{ $customer->discription }}</flux:select.option>
                         @endforeach
                     </flux:select>
 
                     <flux:input 
                         label="Customer Req. Delivery Date" 
                         placeholder="e.g. 24-08-1999"
-                        wire:model="wodate"
+                        wire:model="customerreqdeliverydate"
                         type="date"
                         class="mb-2"
                     />
 
-                    <flux:select label="* Division" wire:model="division" class="mb-2">
+                    <flux:select label="* Division" wire:model="division" class="mb-2" placeholder="Choose a division...">
                         <flux:select.option>BRA</flux:select.option>
                         <flux:select.option>PANTY</flux:select.option>
                         <flux:select.option>LINGERIE</flux:select.option>
                         <flux:select.option>TOP</flux:select.option>
                     </flux:select>
 
-                    <flux:select label="Agent Name" wire:model="agentname" class="mb-2">
+                    <flux:select label="Agent Name" wire:model="agentname" class="mb-2" placeholder="Choose an agent...">
                         <flux:select.option>DIRECT</flux:select.option>
                     </flux:select>
 
@@ -94,21 +94,21 @@
                 </div>
 
                 <div>
-                    <flux:select label="* Collection" wire:model="collection" class="mb-2">
+                    <flux:select label="* Collection" wire:model="collection" class="mb-2" placeholder="Choose a collection...">
                         <flux:select.option>BRA</flux:select.option>
                         <flux:select.option>PANTY</flux:select.option>
                         <flux:select.option>LINGERIE</flux:select.option>
                         <flux:select.option>TOP</flux:select.option>
                     </flux:select>
 
-                    <flux:select label="* Product Group" wire:model="productgroup" class="mb-2">
+                    <flux:select label="* Product Group" wire:model="productgroup" class="mb-2" placeholder="Choose a product group...">
                         <flux:select.option>BRA</flux:select.option>
                     </flux:select>
 
                     <flux:input 
-                        label="Internal Shipment Date" 
+                        label="Internal Delivery Date" 
                         placeholder="e.g. 24-08-1999"
-                        wire:model="internalshipmentdate"
+                        wire:model="internaldeliverydate"
                         type="date"
                         class="mb-2"
                     />
@@ -121,13 +121,13 @@
                         class="mb-2"
                     />
 
-                    <flux:select label="MD Name" wire:model="mdname" class="mb-2">
+                    <flux:select label="MD Name" wire:model="mdname" class="mb-2" placeholder="Choose a MD...">
                         @foreach ($customers as $customer)
                             <flux:select.option>{{ $customer->name }}</flux:select.option>
                         @endforeach
                     </flux:select>
 
-                    <flux:select label="Location" wire:model="location" class="mb-2">
+                    <flux:select label="Location" wire:model="location" class="mb-2" placeholder="Choose a location...">
                         <flux:select.option>PT. Globalindo Intimates</flux:select.option>
                     </flux:select>
                 </div>
@@ -174,30 +174,30 @@
                         <div id="customer" role="tabpanel">
                             <div class="p-4 grid grid-cols-3 gap-4">
                                 <div>
-                                    <flux:select label="Agent Name" wire:model="agentname" class="mb-2">
+                                    <flux:select label="Agent Name" wire:model="agentname" class="mb-2" placeholder="Choose an agent...">
                                         <flux:select.option>DIRECT</flux:select.option>
                                     </flux:select>
 
-                                    <flux:select label="Production" wire:model="production" class="mb-2">
+                                    <flux:select label="Production" wire:model="production" class="mb-2" placeholder="Choose a production...">
                                         <flux:select.option>INHOUSE</flux:select.option>
                                         <flux:select.option>OUTHOUSE</flux:select.option>
                                     </flux:select>
                                 </div>
 
                                 <div>
-                                    <flux:select label="* Division" wire:model="division" class="mb-2">
+                                    <flux:select label="* Division" wire:model="division" class="mb-2" placeholder="Choose a division...">
                                         <flux:select.option>BRA</flux:select.option>
                                         <flux:select.option>PANTY</flux:select.option>
                                         <flux:select.option>LINGERIE</flux:select.option>
                                         <flux:select.option>TOP</flux:select.option>
                                     </flux:select>
 
-                                    <flux:select label="Order" wire:model="order" class="mb-2">
+                                    <flux:select label="Order" wire:model="order" class="mb-2" placeholder="Choose an order...">
                                         <flux:select.option>CMT</flux:select.option>
                                         <flux:select.option>FOB</flux:select.option>
                                     </flux:select>
 
-                                    <flux:select label="Factory Name" wire:model="factoryname" class="mb-2">
+                                    <flux:select label="Factory Name" wire:model="factoryname" class="mb-2" placeholder="Choose a factory...">
                                         <flux:select.option>Select an option...</flux:select.option>
                                         <flux:select.option>PT. DDAIWOBO</flux:select.option>
                                     </flux:select>
@@ -218,7 +218,7 @@
                                         class="mb-2"
                                     />
 
-                                    <flux:select label="Currency" wire:model="currency" class="mb-2">
+                                    <flux:select label="Currency" wire:model="currency" class="mb-2" placeholder="Choose a currency...">
                                         <flux:select.option>USD</flux:select.option>
                                         <flux:select.option>IDR</flux:select.option>
                                     </flux:select>
@@ -226,11 +226,11 @@
                             </div>
 
                             <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-full">
-                                <div class="mx-3 mb-0 border-b border-slate-200 pt-3 pb-2 px-1">
+                                {{-- <div class="mx-3 mb-0 border-b border-slate-200 pt-3 pb-2 px-1">
                                   <span class="text-sm text-slate-600 font-medium">
                                     General Information
                                   </span>
-                                </div>
+                                </div> --}}
                                 
                                 <div class="p-4">
                                     <table class="w-full text-left table-auto min-w-max">
@@ -269,21 +269,452 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="hidden opacity-0" id="preparation" role="tabpanel">
-                        <p class="text-slate-400 font-light">
-                            The reading of all good books is like a conversation with the
-                            finest minds of past centuries.
-                        </p>
+                          <div class="p-4 grid grid-cols-3 gap-4">
+
+                            <div>
+                                <flux:select label="Customer Sheet Number" wire:model="customersheetnumber" class="mb-2" placeholder="Choose Cust Sheet No...">
+                                    <flux:select.option>3363</flux:select.option>
+                                    <flux:select.option>3364</flux:select.option>
+                                    <flux:select.option>3365</flux:select.option>
+                                </flux:select>
+
+                                <div class="flex">
+                                  <flux:input 
+                                    label="Customer Price" 
+                                    placeholder="e.g. 10.0"
+                                    wire:model="customerprice"
+                                    class="mb-2"
+                                  />
+                                  <flux:select label="Currency" wire:model="customercurrency" class="mb-2" placeholder="Choose currency...">
+                                    <flux:select.option>USD</flux:select.option>
+                                    <flux:select.option>IDR</flux:select.option>
+                                  </flux:select>
+                                </div>
+
+                                <div class="flex">
+                                  <flux:input 
+                                    label="Internal Price" 
+                                    placeholder="e.g. 10.0"
+                                    wire:model="customerprice"
+                                    class="mb-2"
+                                  />
+                                  <flux:select label="Internal Price" wire:model="internalcurrency" class="mb-2" placeholder="Choose currency...">
+                                    <flux:select.option>USD</flux:select.option>
+                                    <flux:select.option>IDR</flux:select.option>
+                                  </flux:select>
+                                </div>
+
+                                <flux:input 
+                                  label="Total Garment Quantity" 
+                                  placeholder="e.g. 100"
+                                  wire:model="totalgarmentquantity"
+                                  class="mb-2"
+                                />
+                            </div>
+
+                            <div>
+                                <flux:select label="SWN#" wire:model="swn" class="mb-2" placeholder="Choose SWN...">
+                                  <flux:select.option>ANG/JACKET | 1</flux:select.option>
+                                  <flux:select.option>xxx | 2</flux:select.option>
+                                </flux:select>
+
+                                <flux:input 
+                                  label="Work Sheet Recorded Date" 
+                                  placeholder="e.g. 24-08-1999"
+                                  wire:model="worksheetrecordeddate"
+                                  type="date"
+                                  class="mb-2"
+                                />
+
+                                <flux:input 
+                                  label="Customer Req. Delivery Date" 
+                                  placeholder="e.g. 24-08-1999"
+                                  wire:model="customerreqdeliverydate"
+                                  type="date"
+                                  class="mb-2"
+                                />
+
+                                <flux:input 
+                                  label="Internal Delivery Date" 
+                                  placeholder="e.g. 24-08-1999"
+                                  wire:model="internaldeliverydate"
+                                  type="date"
+                                  class="mb-2"
+                                />
+                            </div>
+
+                            <div>
+                                <flux:input 
+                                    label="CPM Cost" 
+                                    placeholder="e.g. 10.0"
+                                    wire:model="cpmcost"
+                                    class="mb-2"
+                                />
+
+                                <flux:input 
+                                  label="Extended Delivery Date" 
+                                  placeholder="e.g. 24-08-1999"
+                                  wire:model="extendeddeliverydate"
+                                  type="date"
+                                  class="mb-2"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-full">
+                            {{-- <div class="mx-3 mb-0 border-b border-slate-200 pt-3 pb-2 px-1">
+                              <span class="text-sm text-slate-600 font-medium">
+                                General Information
+                              </span>
+                            </div> --}}
+                            
+                            <div class="p-4">
+                                <table class="w-full text-left table-auto min-w-max">
+                                    <thead>
+                                        <tr>
+                                            <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                                <p class="text-sm font-normal leading-none text-slate-500">
+                                                    PO Customer
+                                                </p>
+                                            </th>
+                                            <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                                <p class="text-sm font-normal leading-none text-slate-500">
+                                                    Style
+                                                </p>
+                                            </th>
+                                            <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                                <p class="text-sm font-normal leading-none text-slate-500">
+                                                    Customer Delivery Date
+                                                </p>
+                                            </th>
+                                            <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                                <p class="text-sm font-normal leading-none text-slate-500">
+                                                    Color Name
+                                                </p>
+                                            </th>
+                                            <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                                <p class="text-sm font-normal leading-none text-slate-500">
+                                                    Shipment Mode
+                                                </p>
+                                            </th>
+                                            <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                                <p class="text-sm font-normal leading-none text-slate-500">
+                                                    Shipment Term
+                                                </p>
+                                            </th>
+                                            <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                                <p class="text-sm font-normal leading-none text-slate-500">
+                                                    Payment Term
+                                                </p>
+                                            </th>
+                                            <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                                <p class="text-sm font-normal leading-none text-slate-500">
+                                                    SO COMM
+                                                </p>
+                                            </th>
+                                            <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                                <p class="text-sm font-normal leading-none text-slate-500">
+                                                    Total Quantity
+                                                </p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="hover:bg-slate-50 border-b border-slate-200">
+                                            <td class="p-4 py-5" colspan="6">
+                                                <p class="block font-semibold text-sm text-slate-800">No data found</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                         </div>
                         <div class="hidden opacity-0" id="bomfabric" role="tabpanel">
-                        <p class="text-slate-400 font-light">
-                            Comparing yourself to others is the thief of joy.
-                        </p>
+                          <div class="p-4 overflow-auto">
+                            <table class="w-full text-left table-auto min-w-max">
+                                <thead>
+                                    <tr>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                              Garment Fabric
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                              Other Fabric
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Internal Code
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Fabric Quality
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Customer Item Code
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            PWN Seq. Code
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Consumption MAP
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Units MAP
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Consumption Per
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Units
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Color Garment
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Size Garment
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Fabric Color
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Order Quantity
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Total Quantity
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Extra %
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Supplier
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Budget Price
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Garment Placement
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Comment
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Supplier Code
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            IPR
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Organized By
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                           PWN No
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                           Price Cost
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                           Total
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                           Total Order
+                                          </p>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="hover:bg-slate-50 border-b border-slate-200">
+                                        <td class="p-4 py-5" colspan="6">
+                                            <p class="block font-semibold text-sm text-slate-800">No data found</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                          </div>
                         </div>
                         <div class="hidden opacity-0" id="bomacc" role="tabpanel">
-                        <p class="text-slate-400 font-light">
-                            Comparing yourself to others is the thief of joy.
-                        </p>
+                          <div class="p-4 overflow-auto">
+                            <table class="w-full text-left table-auto min-w-max">
+                                <thead>
+                                    <tr>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Accessories
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Accessories Code
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Article
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Item Name
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Customer Item Code
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Consumption MAP
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Units MAP
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Consumption Per Garment
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Units
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Color Garment
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Size Garment
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Item Color
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Order Quantity
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Total Quantity
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Extra %
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Supplier
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Budget Price
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Garment Placement
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Comment
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            Supplier Code
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                            IPR
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                           Price Cost
+                                          </p>
+                                        </th>
+                                        <th class="p-4 border-b border-slate-200 bg-slate-50">
+                                          <p class="text-sm font-normal leading-none text-slate-500">
+                                           Total Order
+                                          </p>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="hover:bg-slate-50 border-b border-slate-200">
+                                        <td class="p-4 py-5" colspan="6">
+                                            <p class="block font-semibold text-sm text-slate-800">No data found</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                          </div>
                         </div>
                         <div class="hidden opacity-0" id="process" role="tabpanel">
                         <p class="text-slate-400 font-light">
